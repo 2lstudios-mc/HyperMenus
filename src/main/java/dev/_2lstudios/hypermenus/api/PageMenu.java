@@ -1,8 +1,8 @@
 package dev._2lstudios.hypermenus.api;
 
 public class PageMenu extends Menu {
-    private Menu prevMenu;
-    private Menu nextMenu;
+    private Menu prevMenu = null;
+    private Menu nextMenu = null;
     private int page;
 
     public PageMenu(final int page) {
