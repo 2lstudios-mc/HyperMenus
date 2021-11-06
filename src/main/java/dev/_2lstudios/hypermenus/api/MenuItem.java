@@ -12,46 +12,37 @@ import dev._2lstudios.hypermenus.hooks.ColorsHook;
 import dev._2lstudios.hypermenus.hooks.PlaceholderAPIHook;
 
 public class MenuItem {
-    private final ItemStack itemStack;
-
-    public MenuItem() {
-        this.itemStack = new ItemStack(Material.STONE);
-    }
+    private Material type = Material.STONE;
+    private String name = null;
+    private List<String> lore = null;
 
     public MenuItem setType(final Material type) {
-        itemStack.setType(type);
-
-        return this;
-    }
-
-    public MenuItem setDisplayname(final OfflinePlayer player, final String name) {
-        final ItemMeta itemMeta = itemStack.getItemMeta();
-
-        itemMeta.setDisplayName(PlaceholderAPIHook.replace(player, ColorsHook.replace(name)));
-        itemStack.setItemMeta(itemMeta);
+        this.type = type;
 
         return this;
     }
 
     public MenuItem setDisplayname(final String name) {
-        return setDisplayname(null, name);
-    }
-
-    public MenuItem setLore(final OfflinePlayer player, final List<String> lore) {
-        final ItemMeta itemMeta = itemStack.getItemMeta();
-
-        itemMeta.setLore(PlaceholderAPIHook.replace(player, ColorsHook.replace(lore)));
-        itemStack.setItemMeta(itemMeta);
+        this.name = name;
 
         return this;
     }
 
     public MenuItem setLore(final List<String> lore) {
-        return setLore(null, lore);
+        this.lore = lore;
+
+        return this;
     }
 
-    public ItemStack getItemStack() {
-        return itemStack;
+    public ItemStack toItemStack(final OfflinePlayer player) {
+        final ItemStack item = new ItemStack(type);
+        final ItemMeta itemMeta = item.getItemMeta();
+
+        itemMeta.setDisplayName(PlaceholderAPIHook.replace(player, ColorsHook.replace(name)));
+        itemMeta.setLore(PlaceholderAPIHook.replace(player, ColorsHook.replace(lore)));
+        item.setItemMeta(itemMeta);
+
+        return item;
     }
 
     public void onClick(final InventoryClickEvent event) {
