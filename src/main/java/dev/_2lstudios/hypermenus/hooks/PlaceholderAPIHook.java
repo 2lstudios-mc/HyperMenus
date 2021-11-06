@@ -1,5 +1,7 @@
 package dev._2lstudios.hypermenus.hooks;
 
+import java.util.List;
+
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 
@@ -12,5 +14,13 @@ public class PlaceholderAPIHook {
         }
 
         return text;
+    }
+
+    public static List<String> replace(final OfflinePlayer player, final List<String> texts) {
+        for (int i = 0; i < texts.size(); i++) {
+            texts.set(i, replace(player, texts.get(i)));
+        }
+
+        return texts;
     }
 }
