@@ -1,3 +1,3 @@
-# Bukkit Boilerplate
+# HyperMenus
 
-Sample project to create Plugins for Bukkit.
+Easily create menus with Bukkit Inventory API.
