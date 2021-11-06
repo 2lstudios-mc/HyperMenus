@@ -7,9 +7,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
 public class HyperMenusAPI {
-    // Shared menus for ram saving
-    private Map<Menu, Inventory> staticMenus;
-
     // Opened menus
     private Map<Inventory, Menu> menus;
 
@@ -26,29 +23,13 @@ public class HyperMenusAPI {
     }
 
     public void removeMenu(final Inventory inventory) {
-        if (!staticMenus.containsValue(inventory)) {
-            menus.remove(inventory);
-        }
+        menus.remove(inventory);
     }
 
     public void openMenu(final Player player, final Menu menu) {
-        final Inventory inventory = menu.toInventory();
+        final Inventory inventory = menu.toInventory(player);
 
         addMenu(menu, inventory);
-
-        player.openInventory(inventory);
-    }
-
-    public void openStaticMenu(final Player player, final Menu menu) {
-        final Inventory inventory;
-
-        if (staticMenus.containsKey(menu)) {
-            inventory = staticMenus.get(menu);
-        } else {
-            inventory = menu.toInventory();
-
-            addMenu(menu, inventory);
-        }
 
         player.openInventory(inventory);
     }

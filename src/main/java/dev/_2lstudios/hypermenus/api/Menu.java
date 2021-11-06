@@ -4,10 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 
-import dev._2lstudios.hypermenus.hooks.Colors;
+import dev._2lstudios.hypermenus.hooks.ColorsHook;
 import dev._2lstudios.hypermenus.hooks.PlaceholderAPIHook;
 
 public class Menu {
@@ -57,8 +58,9 @@ public class Menu {
         // Overriden by superclass
     }
 
-    public Inventory toInventory() {
-final Inventory inventory = Bukkit.createInventory(null, size, PlaceholderAPIHook.replace(Colors.replace(title)));
+    public Inventory toInventory(final OfflinePlayer player) {
+        final Inventory inventory = Bukkit.createInventory(null, size,
+                PlaceholderAPIHook.replace(player, ColorsHook.replace(title)));
 
         return inventory;
     }
