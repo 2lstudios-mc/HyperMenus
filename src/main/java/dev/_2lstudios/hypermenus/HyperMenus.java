@@ -23,7 +23,7 @@ public class HyperMenus extends JavaPlugin {
         HyperMenus.api = new HyperMenusAPI();
 
         pluginManager.registerEvents(new InventoryClickListener(api), this);
-        pluginManager.registerEvents(new InventoryCloseListener(), this);
+        pluginManager.registerEvents(new InventoryCloseListener(api), this);
         pluginManager.registerEvents(new PlayerJoinListener(), this);
         pluginManager.registerEvents(new PlayerQuitListener(), this);
     }
