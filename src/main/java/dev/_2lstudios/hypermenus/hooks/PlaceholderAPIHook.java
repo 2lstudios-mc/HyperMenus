@@ -9,7 +9,7 @@ import me.clip.placeholderapi.PlaceholderAPI;
 
 public class PlaceholderAPIHook {
     public static String replace(final OfflinePlayer player, final String text) {
-        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+        if (player != null && Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             return PlaceholderAPI.setPlaceholders(player, text);
         }
 
@@ -17,8 +17,10 @@ public class PlaceholderAPIHook {
     }
 
     public static List<String> replace(final OfflinePlayer player, final List<String> texts) {
-        for (int i = 0; i < texts.size(); i++) {
-            texts.set(i, replace(player, texts.get(i)));
+        if (player != null) {
+            for (int i = 0; i < texts.size(); i++) {
+                texts.set(i, replace(player, texts.get(i)));
+            }
         }
 
         return texts;
