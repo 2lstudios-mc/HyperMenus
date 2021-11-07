@@ -6,12 +6,18 @@ import org.bukkit.ChatColor;
 
 public class ColorsHook {
     public static String replace(final String text) {
-        return ChatColor.translateAlternateColorCodes('&', text);
+        if (text != null) {
+            return ChatColor.translateAlternateColorCodes('&', text);
+        }
+
+        return text;
     }
 
     public static List<String> replace(final List<String> texts) {
-        for (int i = 0; i < texts.size(); i++) {
-            texts.set(i, replace(texts.get(i)));
+        if (texts != null) {
+            for (int i = 0; i < texts.size(); i++) {
+                texts.set(i, replace(texts.get(i)));
+            }
         }
 
         return texts;
