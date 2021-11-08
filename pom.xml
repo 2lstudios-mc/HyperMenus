@@ -7,7 +7,7 @@
 
     <name>HyperMenus</name>
     <description>Easily create menus with Bukkit Inventory API.</description>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
     <url>https://github.com/linsaftw/HyperMenus</url>
 
     <properties>
