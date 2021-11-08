@@ -59,10 +59,6 @@ public class Menu {
         return this;
     }
 
-    public void onClick(final InventoryClickEvent event) {
-        // Overriden by superclass
-    }
-
     public Inventory toInventory(final OfflinePlayer player) {
         final Inventory inventory = Bukkit.createInventory(null, size,
                 PlaceholderAPIHook.replace(player, ColorsHook.replace(title)));
@@ -78,5 +74,9 @@ public class Menu {
         }
 
         return inventory;
+    }
+
+    public void onClick(final InventoryClickEvent event) {
+        // Overriden by superclass
     }
 }
