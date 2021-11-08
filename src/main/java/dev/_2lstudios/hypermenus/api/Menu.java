@@ -14,6 +14,9 @@ import dev._2lstudios.hypermenus.hooks.ColorsHook;
 import dev._2lstudios.hypermenus.hooks.PlaceholderAPIHook;
 
 public class Menu {
+    public static int[] CHECKERED_SLOTS = new int[] { 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29,
+        30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43 };
+        
     private final Map<Integer, MenuItem> items;
     private String title;
     private int size;
