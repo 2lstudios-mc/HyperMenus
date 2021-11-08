@@ -15,7 +15,7 @@ public class MenuItem {
     private Material type = Material.STONE;
     private String name = null;
     private List<String> lore = null;
-    private int amount;
+    private int amount = 1;
 
     public Material getType() {
         return type;
